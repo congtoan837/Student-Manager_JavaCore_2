@@ -1,73 +1,81 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  * @author Công Toàn
  */
-public class Student {
+public class Student implements Serializable {
     static Scanner sc = new Scanner(System.in);
-    private String Name, Email, Academic;
+    private String id, name, image, address, note;
     private Double Marks;
 
     public Student() {
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
-    public String getEmail() {
-        return Email;
+    public String getImage() {
+        return image;
     }
 
-    public void setEmail(String email) {
-        Email = email;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getAcademic() {
-        return Academic;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAcademic(String academic) {
-        Academic = academic;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public Double getMark() {
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public Double getMarks() {
         return Marks;
     }
 
-    public void setMark(Double mark) {
-        Marks = mark;
+    public void setMarks(Double marks) {
+        Marks = marks;
     }
 
     void input() {
-        System.out.print("Nhập Họ và Tên: ");
-        Name = sc.nextLine();
-        System.out.print("Nhập Email: ");
-        Email = sc.nextLine();
-        System.out.print("Nhập Điểm (VD: 5,0): ");
+        System.out.print("Nhập MHS: ");
+        id = sc.nextLine();
+        System.out.print("Nhập tên: ");
+        name = sc.nextLine();
+        System.out.print("Nhập điểm: ");
         Marks = sc.nextDouble();
-        Academic = academicLevel();
-    }
-
-    String academicLevel() {
-        if (Marks >= 9)
-            Academic = "Xuat sac";
-        else if (Marks >= 7.5)
-            Academic = "Gioi";
-        else if (Marks >= 6.5)
-            Academic = "Kha";
-        else if (Marks >= 5)
-            Academic = "Trung Binh";
-        else
-            Academic = "Yeu";
-        return Academic;
+        System.out.print("Nhập hình ảnh: ");
+        image = sc.nextLine();
+        System.out.print("Nhập địa chỉ: ");
+        address = sc.nextLine();
+        System.out.print("Nhập ghi chú: ");
+        note = sc.nextLine();
     }
 
     public void print() {
-        System.out.println(Name + "\t" + Email + "\t" + Marks + "\t" + Academic);
+        System.out.println(id + "\t" + name + "\t" + Marks + "\t" + image + "\t" + address + "\t" + note);
     }
 }
